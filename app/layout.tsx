@@ -10,8 +10,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'X-PPLG Classroom',
+  description: 'Showcase of the X-PPLG class - 10th grade Software & Games',
   generator: 'v0.app',
   icons: {
     icon: [
