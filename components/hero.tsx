@@ -2,11 +2,42 @@
 
 import { useState, useEffect } from 'react'
 
+const COLORS = [
+  'rgb(34, 211, 238)',
+  'rgb(236, 72, 153)',
+  'rgb(168, 85, 247)',
+  'rgb(59, 130, 246)',
+]
+
+interface BlockStyle {
+  width: string
+  height: string
+  left: string
+  bottom: string
+  backgroundColor: string
+  opacity: number
+  animation: string
+  animationDelay: string
+}
+
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
+  const [blockStyles, setBlockStyles] = useState<BlockStyle[]>([])
 
   useEffect(() => {
     setIsVisible(true)
+    setBlockStyles(
+      [...Array(15)].map((_, i) => ({
+        width: Math.random() * 80 + 40 + 'px',
+        height: Math.random() * 80 + 40 + 'px',
+        left: Math.random() * 100 + '%',
+        bottom: Math.random() * -300 + 'px',
+        backgroundColor: COLORS[i % 4],
+        opacity: 0.2,
+        animation: `float-up ${Math.random() * 10 + 10}s linear infinite`,
+        animationDelay: Math.random() * 3 + 's',
+      }))
+    )
   }, [])
 
   return (
@@ -14,26 +45,8 @@ export function Hero() {
       {/* Animated rising blocks background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Animated blocks moving up */}
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute"
-            style={{
-              width: Math.random() * 80 + 40 + 'px',
-              height: Math.random() * 80 + 40 + 'px',
-              left: Math.random() * 100 + '%',
-              bottom: Math.random() * -300 + 'px',
-              backgroundColor: [
-                'rgb(34, 211, 238)',
-                'rgb(236, 72, 153)',
-                'rgb(168, 85, 247)',
-                'rgb(59, 130, 246)'
-              ][i % 4],
-              opacity: 0.2,
-              animation: `float-up ${Math.random() * 10 + 10}s linear infinite`,
-              animationDelay: Math.random() * 3 + 's'
-            }}
-          ></div>
+        {blockStyles.map((style, i) => (
+          <div key={i} className="absolute" style={style}></div>
         ))}
 
         {/* Pixelated grid pattern overlay */}

@@ -26,8 +26,7 @@ export function Footer() {
             <div className="text-center">
               <h3 className="text-sm font-semibold tracking-widest uppercase text-cyan-400 mb-4 font-jersey">Created By</h3>
               <div className="space-y-2">
-                <p className="text-white hover:text-cyan-400 transition-colors cursor-pointer">EKIZR</p>
-                <p className="text-white hover:text-cyan-400 transition-colors cursor-pointer">DAFYALL</p>
+                <a href="https://github.com/Razerpoa" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-cyan-400 transition-colors cursor-pointer">FATHAN</a>
               </div>
             </div>
 
@@ -35,24 +34,8 @@ export function Footer() {
             <div className="text-center">
               <h3 className="text-sm font-semibold tracking-widest uppercase text-cyan-400 mb-4 font-jersey">Follow Us</h3>
               <div className="space-y-2">
-                <p className="text-white hover:text-cyan-400 transition-colors cursor-pointer">Instagram</p>
-                <p className="text-white hover:text-cyan-400 transition-colors cursor-pointer">Youtube</p>
+                <a href="https://www.instagram.com/pplgfamily6" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-cyan-400 transition-colors cursor-pointer">Instagram</a>
               </div>
-            </div>
-
-            {/* Rate Us */}
-            <div className="text-center">
-              <h3 className="text-sm font-semibold tracking-widest uppercase text-cyan-400 mb-4 font-jersey">Rate Us</h3>
-              <div className="flex items-center justify-center gap-2">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <div
-                    key={star}
-                    className={`w-5 h-5 cursor-pointer transition-colors ${star <= rating ? 'bg-cyan-400' : 'bg-gray-600'}`}
-                    onClick={() => setRating(star)}
-                  ></div>
-                ))}
-              </div>
-              <p className="text-sm text-cyan-400 mt-2 font-jersey">{rating}.0</p>
             </div>
           </div>
 
@@ -61,7 +44,7 @@ export function Footer() {
 
           {/* Copyright */}
           <div className="text-center text-sm text-gray-400">
-            <p>© 2025 Kelas X-PPLG | Program Keahlian Perangkat Lunak dan Perangkat Multimedia</p>
+            <p>© 2026 Kelas X-PPLG | Pengembangan Perangkat Lunak dan Gim</p>
           </div>
         </div>
       </div>
