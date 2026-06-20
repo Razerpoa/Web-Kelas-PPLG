@@ -10,53 +10,59 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-purple-900 via-slate-900 to-black flex items-center justify-center overflow-hidden px-4">
-      {/* Animated decorative background blur elements */}
+    <section className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden px-4">
+      {/* Blocky geometric background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-cyan-500 rounded-full blur-3xl opacity-5 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        {/* Large blocks */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500 opacity-10"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-600 opacity-10"></div>
+        <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-pink-500 opacity-5"></div>
+        
+        {/* Pixelated grid pattern overlay */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent)',
+          backgroundSize: '50px 50px'
+        }}></div>
       </div>
 
-      {/* Pixelated decorative elements for gamey vibe */}
-      <div className="absolute top-10 right-10 w-8 h-8 bg-cyan-400 opacity-30" style={{ animation: 'bounce 2s infinite' }}></div>
-      <div className="absolute bottom-20 right-20 w-6 h-6 bg-pink-400 opacity-30" style={{ animation: 'bounce 2s infinite 0.5s' }}></div>
-      <div className="absolute top-1/4 left-10 w-6 h-6 bg-yellow-400 opacity-30" style={{ animation: 'bounce 2s infinite 1s' }}></div>
+      {/* Blocky pixel decorative elements */}
+      <div className="absolute top-12 right-12 flex gap-2 pointer-events-none">
+        <div className="w-6 h-6 bg-cyan-400"></div>
+        <div className="w-6 h-6 bg-pink-400"></div>
+        <div className="w-6 h-6 bg-cyan-400"></div>
+      </div>
+      <div className="absolute bottom-12 left-12 flex gap-2 pointer-events-none">
+        <div className="w-6 h-6 bg-purple-400"></div>
+        <div className="w-6 h-6 bg-cyan-400"></div>
+        <div className="w-6 h-6 bg-purple-400"></div>
+        <div className="w-6 h-6 bg-cyan-400"></div>
+      </div>
 
-      <div className={`relative z-10 text-center max-w-4xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <p className="text-sm md:text-base text-cyan-300 mb-4 tracking-widest uppercase font-jersey text-shadow" style={{ textShadow: '0 0 10px rgba(34, 211, 238, 0.5)' }}>Hi, Visitor</p>
+      <div className={`relative z-10 text-center max-w-4xl transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+        <p className="text-sm md:text-base text-cyan-400 mb-6 tracking-widest uppercase font-jersey" style={{ letterSpacing: '0.1em' }}>Hi, Visitor</p>
         
-        <h1 className="text-8xl md:text-9xl font-bold text-white mb-4 leading-tight drop-shadow-2xl font-jersey animate-in fade-in duration-1000" style={{ 
-          textShadow: '0 0 20px rgba(167, 139, 250, 0.8), 0 0 40px rgba(59, 130, 246, 0.6)',
-          letterSpacing: '0.05em'
+        <h1 className="text-8xl md:text-9xl font-bold text-white mb-4 leading-tight font-jersey" style={{ 
+          letterSpacing: '0.08em',
+          border: '3px solid white',
+          padding: '20px 40px',
+          boxShadow: '8px 8px 0px rgba(34, 211, 238, 0.5), 16px 16px 0px rgba(236, 72, 153, 0.3)'
         }}>
           WELCOME
         </h1>
         
-        <p className="text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 tracking-widest uppercase font-jersey font-bold animate-pulse" style={{ 
-          animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-        }}>
+        <p className="text-2xl md:text-3xl text-cyan-400 tracking-widest uppercase font-jersey font-bold mt-8" style={{ letterSpacing: '0.08em' }}>
           To X-PPLG
         </p>
 
-        {/* Decorative dividers */}
-        <div className="flex justify-center gap-4 mt-12">
-          <div className="w-8 h-1 bg-gradient-to-r from-transparent to-cyan-400"></div>
-          <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-          <div className="w-8 h-1 bg-gradient-to-l from-transparent to-cyan-400"></div>
+        {/* Blocky decorative line dividers */}
+        <div className="flex justify-center gap-2 mt-12">
+          <div className="w-4 h-4 bg-cyan-400"></div>
+          <div className="w-4 h-4 bg-white"></div>
+          <div className="w-4 h-4 bg-pink-400"></div>
+          <div className="w-4 h-4 bg-white"></div>
+          <div className="w-4 h-4 bg-cyan-400"></div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-      `}</style>
     </section>
   )
 }
