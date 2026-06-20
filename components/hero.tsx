@@ -11,13 +11,31 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden px-4">
-      {/* Blocky geometric background elements */}
+      {/* Animated rising blocks background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Large blocks */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500 opacity-10"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-600 opacity-10"></div>
-        <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-pink-500 opacity-5"></div>
-        
+        {/* Animated blocks moving up */}
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute"
+            style={{
+              width: Math.random() * 80 + 40 + 'px',
+              height: Math.random() * 80 + 40 + 'px',
+              left: Math.random() * 100 + '%',
+              bottom: Math.random() * -300 + 'px',
+              backgroundColor: [
+                'rgb(34, 211, 238)',
+                'rgb(236, 72, 153)',
+                'rgb(168, 85, 247)',
+                'rgb(59, 130, 246)'
+              ][i % 4],
+              opacity: 0.2,
+              animation: `float-up ${Math.random() * 10 + 10}s linear infinite`,
+              animationDelay: Math.random() * 3 + 's'
+            }}
+          ></div>
+        ))}
+
         {/* Pixelated grid pattern overlay */}
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent)',
@@ -63,6 +81,25 @@ export function Hero() {
           <div className="w-4 h-4 bg-cyan-400"></div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes float-up {
+          0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0;
+          }
+          5% {
+            opacity: 0.2;
+          }
+          95% {
+            opacity: 0.2;
+          }
+          100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+      `}</style>
     </section>
   )
 }
