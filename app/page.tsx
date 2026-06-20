@@ -1,11 +1,13 @@
 import { Hero } from '@/components/hero'
 import { StudentGrid } from '@/components/student-grid'
+import { Footer } from '@/components/footer'
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-white dark:bg-slate-900">
+    <div className="bg-black">
       <Hero />
       <StudentGrid />
-    </main>
+      <Footer />
+    </div>
   )
 }
